@@ -1,12 +1,12 @@
 <script>
     import * as backend from "./turbocharger_generated";
+    import { onMount } from "svelte";
 
-    (async () => {
+    onMount(async () => {
         let person = Object.assign(new backend.Person(), { name: "Bob" });
-
         let rowid = await backend.insert_person(person);
         console.log("Inserted rowid ", rowid);
-    })();
+    });
 
     let stream_example_result = backend.stream_example_result();
     let stream_example = backend.stream_example();
